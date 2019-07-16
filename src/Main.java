@@ -1,4 +1,10 @@
+import javax.swing.*;
+
 public class Main {
+    public static void main(String[] args){
+        JFrame f = new GUI();
+        f.show();
+    }
 }
 //takes a keyword
 //shifts alphabet by keyword, making new reference alphabet
