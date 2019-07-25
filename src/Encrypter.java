@@ -14,17 +14,15 @@ public class Encrypter {
         }
         tempAlpha = new String[26-keyword.length()];
         boolean inKeyword = false;
-        int count = keyword.length();
+        int count = keyword.length()-1;
         for(int p = 0; p<26; p++){
-            inKeyword = false;
-            for(int k = 0; k<keyword.length();k++){
-                if(alphabet[p] == ("" + keyword.charAt(k))){
-                    inKeyword = true;
-                }
-            }
-            if(inKeyword != true) {
+            inKeyword = isInKeyword(alphabet[p]);
+            if(inKeyword == false) {
                 shiftedAlpha[count] = alphabet[p];
                 count++;
+            }
+            if(count == 26){
+                break;
             }
         }
 
@@ -32,7 +30,15 @@ public class Encrypter {
             System.out.println(shiftedAlpha[u]);
         }
     }
-
+    public boolean isInKeyword(String s) {
+        boolean b = false;
+        for(int k = 0; k<keyword.length();k++){
+            if(s == ("" + keyword.charAt(k))){
+                b= true;
+            }
+        }
+        return b;
+    }
     /*public String encrypt(String regular) {
         regular.toLowerCase();
     }
