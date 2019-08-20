@@ -14,7 +14,7 @@ public class Encrypter {
         }
         tempAlpha = new String[26-keyword.length()];
         boolean inKeyword = false;
-        int count = keyword.length()-1;
+        int count = keyword.length();
         for(int p = 0; p<26; p++){
             inKeyword = isInKeyword(alphabet[p]);
             if(inKeyword == false) {
@@ -33,16 +33,38 @@ public class Encrypter {
     public boolean isInKeyword(String s) {
         boolean b = false;
         for(int k = 0; k<keyword.length();k++){
-            if(s == ("" + keyword.charAt(k))){
-                b= true;
+            if(s.charAt(0) == keyword.charAt(k)){
+                b = true;
+                break;
+            }
+            else{
+                b = false;
             }
         }
         return b;
     }
-    /*public String encrypt(String regular) {
+    public String encrypt(String regular) {
         regular.toLowerCase();
+        String new_phrase = "";
+        for(int i = 0; i<regular.length(); i++){
+            char c = regular.charAt(i);
+            if(Character.isLetter(c)){
+                int n = 0;
+                while((c+"") != alphabet[n]) {
+                    n++;
+                }
+                new_phrase = new_phrase + shiftedAlpha[n] + "";
+            }
+            else if(Character.isDigit(c)){
+                new_phrase = new_phrase + c + "";
+            }
+            else{
+                new_phrase = new_phrase + " ";
+            }
+        }
+        return new_phrase;
     }
-
+/*
     public String decrypt(String nonregular){
         nonregular.toLowerCase();
     }
