@@ -44,14 +44,18 @@ public class Encrypter {
         return b;
     }
     public String encrypt(String regular) {
-        regular.toLowerCase();
+        regular = regular.toLowerCase();
         String new_phrase = "";
         for(int i = 0; i<regular.length(); i++){
             char c = regular.charAt(i);
             if(Character.isLetter(c)){
                 int n = 0;
-                while((c+"") != alphabet[n]) {
-                    n++;
+                for(int p = 0; p<alphabet.length; p++){
+                    System.out.println(c + "   " + alphabet[p]);
+                    if(Character.toString(c).equals(alphabet[p])){
+                        n = p;
+                        break;
+                    }
                 }
                 new_phrase = new_phrase + shiftedAlpha[n] + "";
             }
