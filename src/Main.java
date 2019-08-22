@@ -1,5 +1,20 @@
 import javax.swing.*;
 
+/**
+ * Message Encrypter
+ *
+ * This program converts statements using a keyword
+ * that is input via the user. The program then shifts the
+ * alphabet accordingly and substitutions are made.
+ *
+ * @author Frances O'Leary
+ *
+ * @version August 21, 2019
+ *
+ */
+
+
+//begin praciticing and using the Purdue style conventions
 public class Main {
     public static void main(String[] args){
         JFrame f = new GUI();
