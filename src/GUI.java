@@ -96,6 +96,27 @@ public class GUI extends JFrame implements ActionListener {
 
     /**
      *
+     * Determines whether or not a keyword has a repeated letter
+     *
+     * @param k is the keyword
+     * @return a boolean value, stating whether or not the keyword passed or not
+     *
+     */
+
+    public static boolean checkKeyword(String k){
+        for(int i = 0; i<k.length();i++){
+            for(int p = 0; p<k.length();p++){
+                if(i != p) {
+                    if (k.charAt(i) ==k.charAt(p)){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    /**
+     *
      * Action listener that handles the events of the buttons.
      * Creates an Encrypter object and takes user input /
      * returns the results to the user too.
@@ -104,6 +125,9 @@ public class GUI extends JFrame implements ActionListener {
      */
     public void actionPerformed(ActionEvent e){
         String k_word = keyword.getText();
+        if(checkKeyword(k_word) == false){
+            JOptionPane.showMessageDialog(this,"Please enter a keyword with no repeated characters.", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
         encr = new Encrypter(k_word);
         String incoming = input.getText();
         //System.out.println(encr.encrypt(incoming));

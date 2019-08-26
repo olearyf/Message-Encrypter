@@ -39,17 +39,7 @@ public class Encrypter {
     }
     //check if keyword has doubles or not
 
-    /**
-     *
-     * Determines whether or not a keyword has a repeated letter
-     *
-     * @param k is the keyword
-     * @return a boolean value, stating whether or not the keyword passed or not
-     *
-     */
-    /*
-    public boolean checkKeyword(String k){
-    }*/
+
 
     /**
      *
